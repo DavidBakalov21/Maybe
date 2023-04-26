@@ -1,0 +1,15 @@
+C:\Users\Давід\RiderProjects\MaybeUmean2\MaybeUmean2\bin\Debug\net7.0\MaybeUmean2.exe
+C:\Users\Давід\RiderProjects\MaybeUmean2\MaybeUmean2\bin\Debug\net7.0\MaybeUmean2.deps.json
+C:\Users\Давід\RiderProjects\MaybeUmean2\MaybeUmean2\bin\Debug\net7.0\MaybeUmean2.runtimeconfig.json
+C:\Users\Давід\RiderProjects\MaybeUmean2\MaybeUmean2\bin\Debug\net7.0\MaybeUmean2.dll
+C:\Users\Давід\RiderProjects\MaybeUmean2\MaybeUmean2\bin\Debug\net7.0\MaybeUmean2.pdb
+C:\Users\Давід\RiderProjects\MaybeUmean2\MaybeUmean2\obj\Debug\net7.0\MaybeUmean2.csproj.AssemblyReference.cache
+C:\Users\Давід\RiderProjects\MaybeUmean2\MaybeUmean2\obj\Debug\net7.0\MaybeUmean2.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Давід\RiderProjects\MaybeUmean2\MaybeUmean2\obj\Debug\net7.0\MaybeUmean2.AssemblyInfoInputs.cache
+C:\Users\Давід\RiderProjects\MaybeUmean2\MaybeUmean2\obj\Debug\net7.0\MaybeUmean2.AssemblyInfo.cs
+C:\Users\Давід\RiderProjects\MaybeUmean2\MaybeUmean2\obj\Debug\net7.0\MaybeUmean2.csproj.CoreCompileInputs.cache
+C:\Users\Давід\RiderProjects\MaybeUmean2\MaybeUmean2\obj\Debug\net7.0\MaybeUmean2.dll
+C:\Users\Давід\RiderProjects\MaybeUmean2\MaybeUmean2\obj\Debug\net7.0\refint\MaybeUmean2.dll
+C:\Users\Давід\RiderProjects\MaybeUmean2\MaybeUmean2\obj\Debug\net7.0\MaybeUmean2.pdb
+C:\Users\Давід\RiderProjects\MaybeUmean2\MaybeUmean2\obj\Debug\net7.0\MaybeUmean2.genruntimeconfig.cache
+C:\Users\Давід\RiderProjects\MaybeUmean2\MaybeUmean2\obj\Debug\net7.0\ref\MaybeUmean2.dll
