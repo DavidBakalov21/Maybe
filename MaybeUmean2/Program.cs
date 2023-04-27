@@ -79,7 +79,39 @@ List<string> LevinsteinList(string value, List<string> checker)
             matrix[i,j] = Math.Min(Math.Min(v1, v2), v3);
         }
     }
-    draft.Add(VARIABLE,matrix[value.Length-1, VARIABLE.Length-1]);
+    var addd = matrix[value.Length, VARIABLE.Length];
+    bool Permute = false;
+    if (VARIABLE.Length==value.Length)
+    {
+        bool FirstCondintion = true;
+        bool SecondCondition = true;
+        for (int b = 0; b < VARIABLE.Length; b++)
+        {
+            if (!value.Contains(VARIABLE[b]))
+            {
+                FirstCondintion = false;
+            }
+        }
+        for (int l = 0; l < value.Length; l++)
+        {
+            if (!VARIABLE.Contains(value[l]))
+            {
+                SecondCondition = false;
+            }
+        }
+
+        if (FirstCondintion==true && SecondCondition==true)
+        {
+            Permute = true;
+        }
+    }
+
+    if (Permute==true)
+    {
+        addd /= 2;
+        Permute = false;
+    }
+    draft.Add(VARIABLE, addd); 
     }
     var Sorted_Word_Points = draft.OrderBy(x => x.Value);
     var count = 0;
@@ -87,7 +119,7 @@ List<string> LevinsteinList(string value, List<string> checker)
     {
         count += 1;
         res.Add(VARIABLE.Key);
-        if (count>4)
+        if (count>8)
         {
             break;
         }
