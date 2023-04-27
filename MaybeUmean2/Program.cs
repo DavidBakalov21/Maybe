@@ -1,4 +1,4 @@
-﻿var  WordsRead= File.ReadAllLines("C:\\Users\\Давід\\RiderProjects\\MaybeUMean2\\MaybeUMean2\\NewFile3.txt");
+﻿var  WordsRead= File.ReadAllLines("C:\\Users\\Давід\\RiderProjects\\MaybeUMean2\\MaybeUMean2\\NewFile1.txt");
 var Words=new List<string>();
 var Sentence = new List<string>();
 for (int i = 0; i < WordsRead.Length; i++)
@@ -31,7 +31,7 @@ foreach (var VARIABLE in Sentence)
     {
         LightTypo+=VARIABLE+" ";
     //   var a= LongestSub(VARIABLE, Words);
-    var a = LevinsteinListPart(VARIABLE, Words);
+    var a = LevinsteinList(VARIABLE, Words);
        foreach (var Wordddd in a)
        {
            Console.WriteLine(Wordddd);
@@ -43,9 +43,59 @@ Console.WriteLine(LightTypo);
 
 
 
+List<string> LevinsteinList(string value, List<string> checker)
+{
+    var draft = new Dictionary<string, int>();
+    var res = new List<string>();
+    foreach (var VARIABLE in checker)
+    {
+        
+    
+    int[,] matrix = new int[value.Length + 1, VARIABLE.Length + 1];
+    for (int i = 0; i <= value.Length; i++)
+    {
+        matrix[i,0] = i;
+    }
+    for (int j = 0; j <= VARIABLE.Length; j++)
+    {
+        matrix[0,j] = j;
+    }
 
+    for (int i = 1; i < value.Length+1; i++)
+    {
+        for (int j = 1; j <VARIABLE.Length+1; j++)
+        {
+            int v1 = matrix[i - 1, j] + 1;
+            int v2 = matrix[i, j - 1] + 1;
+            int v3 = 0;
+            if (value[i-1]==VARIABLE[j-1])
+            {
+                v3 = matrix[i - 1, j - 1] ;
+            }
+            else
+            {
+                v3 = matrix[i - 1, j - 1]+1;
+            }
+            matrix[i,j] = Math.Min(Math.Min(v1, v2), v3);
+        }
+    }
+    draft.Add(VARIABLE,matrix[value.Length-1, VARIABLE.Length-1]);
+    }
+    var Sorted_Word_Points = draft.OrderBy(x => x.Value);
+    var count = 0;
+    foreach (var VARIABLE in Sorted_Word_Points)
+    {
+        count += 1;
+        res.Add(VARIABLE.Key);
+        if (count>4)
+        {
+            break;
+        }
+    }
+    return res;
+}
 
-
+/*
  List<string> LevinsteinListPart(string value, List<string> checker)
 {
     var draft = new Dictionary<string, int>();
@@ -105,7 +155,7 @@ Console.WriteLine(LightTypo);
     }
     return cell;
 }
-
+*/
 
 
 
