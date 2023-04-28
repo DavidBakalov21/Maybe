@@ -9,21 +9,16 @@ for (int i = 0; i < WordsRead.Length; i++)
 var Input = Console.ReadLine().Split(" ");
 foreach (var VARIABLE in Input)
 {
-    if (VARIABLE.Contains(',') || VARIABLE.Contains('.') || VARIABLE.Contains('!') || VARIABLE.Contains('?'))
-    {
-        var WordToAdd=VARIABLE.Substring(0, VARIABLE.Length - 1);
+    var WordToAdd=VARIABLE.Replace(",", "").Replace(".", "").Replace("!", "").Replace("?", "").Replace("$", "");
         Sentence.Add(WordToAdd);
-    }
-    else
-    {
-        Sentence.Add(VARIABLE);
-    }
 }
 
 var LightTypo = "U've got a typo in: ";
 foreach (var VARIABLE in Sentence)
 {
-    if (Words.Contains(VARIABLE))
+    string firstLetterUpper = VARIABLE.Substring(0, 1).ToUpper() + VARIABLE.Substring(1);
+    string firstLetterLower = VARIABLE.Substring(0, 1).ToLower() + VARIABLE.Substring(1);
+    if (Words.Contains(firstLetterUpper) || Words.Contains(firstLetterLower))
     {
         Console.WriteLine(VARIABLE); 
     }
@@ -257,4 +252,4 @@ List<string> LevinsteinList(string value, List<string> checker)
     return res;
 }
 */
-//Trouble: fosh, forn (other small words)
+//Trouble: fosh, forn (other small words) 43378
