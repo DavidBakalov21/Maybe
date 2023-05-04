@@ -63,49 +63,37 @@ List<string> LevinsteinList(string value, List<string> checker)
             int v1 = matrix[i - 1, j] + 1;
             int v2 = matrix[i, j - 1] + 1;
             int v3 = 0;
+            int v4 = 0;
+            int cost = 0;
+            
             if (value[i-1]==VARIABLE[j-1])
             {
                 v3 = matrix[i - 1, j - 1] ;
+                cost = 0;
             }
             else
             {
                 v3 = matrix[i - 1, j - 1]+1;
+                cost = 1;
             }
-            matrix[i,j] = Math.Min(Math.Min(v1, v2), v3);
+            if (i>1 && j>1)
+            {
+                if (VARIABLE[j-1] == value[i - 2] && VARIABLE[j - 2] == value[i-1])
+                {
+                    v4 = matrix[i - 2, j - 2]+cost; 
+                }
+                else
+                {
+                    v4 = 999999999;
+                } 
+            } else {
+                v4 = 999999999;
+            }
+            matrix[i,j] = Math.Min(Math.Min(v1, v2), Math.Min(v3,v4));
         }
     }
     var addd = matrix[value.Length, VARIABLE.Length];
-    bool Permute = false;
-    if (VARIABLE.Length==value.Length)
-    {
-        bool FirstCondintion = true;
-        bool SecondCondition = true;
-        for (int b = 0; b < VARIABLE.Length; b++)
-        {
-            if (!value.Contains(VARIABLE[b]))
-            {
-                FirstCondintion = false;
-            }
-        }
-        for (int l = 0; l < value.Length; l++)
-        {
-            if (!VARIABLE.Contains(value[l]))
-            {
-                SecondCondition = false;
-            }
-        }
-
-        if (FirstCondintion==true && SecondCondition==true)
-        {
-            Permute = true;
-        }
-    }
-
-    if (Permute==true)
-    {
-        addd /= 2;
-        Permute = false;
-    }
+   
     draft.Add(VARIABLE, addd); 
     }
     var Sorted_Word_Points = draft.OrderBy(x => x.Value);
@@ -114,7 +102,7 @@ List<string> LevinsteinList(string value, List<string> checker)
     {
         count += 1;
         res.Add(VARIABLE.Key);
-        if (count>8)
+        if (count>4)
         {
             break;
         }
